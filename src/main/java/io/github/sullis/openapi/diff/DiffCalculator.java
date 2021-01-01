@@ -25,7 +25,7 @@ public class DiffCalculator {
     public List<Diff> calculate(String contents1, String contents2) {
       SwaggerParseResult result1 = createParser().readContents(contents1);
       SwaggerParseResult result2 = createParser().readContents(contents2);
-      return Collections.unmodifiableList(calculate(result1.getOpenAPI(), result2.getOpenAPI()));
+      return Collections.<Diff>unmodifiableList(calculate(result1.getOpenAPI(), result2.getOpenAPI()));
     }
 
     protected List<Diff> calculate(OpenAPI api1, OpenAPI api2) {
@@ -100,7 +100,7 @@ public class DiffCalculator {
     }
 
     private static List<String> sortedKeys(LinkedHashMap<String, ?> map) {
-        List<String> keys = new ArrayList(map.keySet());
+        List<String> keys = new ArrayList<String>(map.keySet());
         Collections.sort(keys);
         return keys;
     }
