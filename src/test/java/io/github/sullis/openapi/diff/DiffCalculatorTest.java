@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static com.google.common.truth.Truth.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static io.github.sullis.openapi.diff.TestUtil.*;
 
 public class DiffCalculatorTest {
