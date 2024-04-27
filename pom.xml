@@ -80,9 +80,6 @@
           <version>3.4.1</version>
           <configuration>
             <rules>
-              <requireJavaVersion>
-                <version>1.8.0</version>
-              </requireJavaVersion>
             </rules>
           </configuration>
         </plugin>
@@ -91,8 +88,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.13.0</version>
           <configuration>
-              <source>8</source>
-              <target>8</target>
+              <source>11</source>
+              <target>11</target>
               <encoding>UTF-8</encoding>
               <compilerArgs>
                   <arg>-Werror</arg>
