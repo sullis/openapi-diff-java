@@ -22,15 +22,27 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# other
-out
-output/
+target/
+
+.idea/
+*.iml
 
 .classpath
 .project
 .settings/
 
-*.iml
-.idea/
+pom.xml.versionsBackup
 
-target/
+.gradle
+build/
+
+!gradle/wrapper/*.jar
+
+# sbt
+.bsp/
+
+release.properties
+pom.xml.releaseBackup
+pom.xml.next
+pom.xml.tag
+
