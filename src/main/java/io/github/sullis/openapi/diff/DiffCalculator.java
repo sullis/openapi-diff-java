@@ -69,11 +69,11 @@ public class DiffCalculator {
 
         MapDifference<String, List<String>> mapDiff = Maps.difference(security1, security2);
 
-        for (Map.Entry entry : mapDiff.entriesOnlyOnLeft().entrySet()) {
+        for (Map.Entry<String, List<String>> entry : mapDiff.entriesOnlyOnLeft().entrySet()) {
             diffs.add(new Diff(DiffType.BREAKING, "Security removed: " + entry.getKey()));
         }
 
-        for (Map.Entry entry : mapDiff.entriesOnlyOnRight().entrySet()) {
+        for (Map.Entry<String, List<String>> entry : mapDiff.entriesOnlyOnRight().entrySet()) {
             diffs.add(new Diff(DiffType.NON_BREAKING, "Security added: " + entry.getKey()));
         }
 
@@ -84,15 +84,15 @@ public class DiffCalculator {
         List<Diff> diffs = new ArrayList<Diff>();
         MapDifference<String, PathItem> mapDiff = Maps.difference(paths1, paths2);
 
-        for (Map.Entry entry : mapDiff.entriesOnlyOnLeft().entrySet()) {
+        for (Map.Entry<String, PathItem> entry : mapDiff.entriesOnlyOnLeft().entrySet()) {
             diffs.add(new Diff(DiffType.BREAKING, "Path removed: " + entry.getKey()));
         }
 
-        for (Map.Entry entry : mapDiff.entriesDiffering().entrySet()) {
+        for (Map.Entry<String, MapDifference.ValueDifference<PathItem>> entry : mapDiff.entriesDiffering().entrySet()) {
             diffs.add(new Diff(DiffType.BREAKING, "Path changed: " + entry.getKey()));
         }
 
-        for (Map.Entry entry : mapDiff.entriesOnlyOnRight().entrySet()) {
+        for (Map.Entry<String, PathItem> entry : mapDiff.entriesOnlyOnRight().entrySet()) {
           diffs.add(new Diff(DiffType.NON_BREAKING, "Path added: " + entry.getKey()));
         }
 
